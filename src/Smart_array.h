@@ -35,7 +35,7 @@ class Smart_array
          * @param obj is an object of the Smart_array class.
          * @return Function returns object of class Smart_array.
          */
-         // Smart_array operator = (Smart_array& obj);
+        Smart_array& operator = (const Smart_array& obj); 
 
         /**
          * @breif Function puts value in array by index.
@@ -43,6 +43,14 @@ class Smart_array
          * @param element is the element which we want to put in array.
          * @return Function does not returns value.
          */
+
+        /**
+         * @breif Function returns value of array[i].
+         * @param index of array.
+         * @return Function returns value of array[i].
+         */
+        int operator [] (int i);
+
         bool set_element_by_index(int index, int element);
 
         /**

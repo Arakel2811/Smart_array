@@ -27,19 +27,26 @@ Smart_array::Smart_array(Smart_array& obj)
     }
 }
 
-//Smart_array Smart_array::operator = (Smart_array& obj)
-//{
-//    Smart_array new_array(obj.get_size());
-//    for(int i = 0; i < obj.get_size(); ++i) {
-//        new_array.set_element_by_index(i, obj.get_element_by_index(i));
-//    }
-//   return new_array;
-//}
+Smart_array& Smart_array::operator=(const Smart_array& obj)
+{
+    m_size = obj.m_size;
+    m_default_element = obj.m_default_element;
+    m_array = new int[m_size];
+    for (int i = 0; i < m_size; ++i) {
+        m_array[i] = obj.m_array[i];
+    } 
+    return *this;
+}
+
+int Smart_array::operator [](int i)
+{
+    return m_array[i];
+}
 
 Smart_array::~Smart_array()
 {
-  std::cout << "Destructor called" << std::endl;
-  delete this->m_array;
+    std::cout << "Destructor called" << std::endl;
+    delete this->m_array;
 }
 
 bool Smart_array::set_element_by_index(int index, int element)
@@ -103,6 +110,9 @@ bool Smart_array::swap(int i, int j)
 //  temp = m_array[i];
 //  m_array[i] = m_array[j]; 
 //  m_array[j] = temp; 
+    if(i == j) {
+      return true;
+    }
     m_array[i] += m_array[j]; 
     m_array[j] = m_array[i] - m_array[j];
     m_array[i] -= m_array[j];
