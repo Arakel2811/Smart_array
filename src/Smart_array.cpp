@@ -48,6 +48,14 @@ int& Smart_array::operator [](int i)
     return m_array[i];
 }
 
+std::ostream& operator <<(std::ostream& os, Smart_array& obj)
+{
+    for (int i = 0; i < obj.get_size() ; ++i) {
+        os << obj[i] << " ";
+    }
+    return os;
+}
+
 Smart_array::~Smart_array()
 {
     std::cout << "Destructor called" << std::endl;

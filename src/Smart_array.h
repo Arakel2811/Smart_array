@@ -1,6 +1,6 @@
 #ifndef SMART_ARRAY_H
 #define SMART_ARRAY_H
-
+#include <iostream>
 class Smart_array
 {
     private:
@@ -41,9 +41,10 @@ class Smart_array
          * @breif Function puts value in array by index.
          * @param index is an index of element in array.
          * @param element is the element which we want to put in array.
-         * @return Function does not returns value.
+         * @return Function returns boolean value.
          */
-
+        bool set_element_by_index(int index, int element);
+       
         /**
          * @breif Function returns value of array[i].
          * @param index of array.
@@ -52,10 +53,19 @@ class Smart_array
         int operator [] (int i) const;
 
         /**
+         * @breif Function returns value of array[i].
+         * @param index of array.
+         * @return Function returns value of array[i];
          */
         int& operator [] (int i);
 
-        bool set_element_by_index(int index, int element);
+        /**
+         * @breif Function prints all elements in array.
+         * @param os is a output stream.
+         * @param obj is Smart_array class object.
+         * @return Function returns ostream value.
+         */
+        friend std::ostream& operator <<(std::ostream& os, Smart_array& obj);
 
         /**
          * @breif Function returns value by index.

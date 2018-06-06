@@ -20,10 +20,7 @@ int main()
     arr.set_element_by_index(1, 515);
     arr.set_element_by_index(2, 5);
     arr.set_element_by_index(3, 15246);
-    arr[1] = 101;
-    std::cout << " arr[1] = " << arr[1] << std::endl;
-    quick_sort(arr, 0, arr.get_size() - 1);
-    arr.print_array();
+    cout << arr << endl;
     return 0;
 }
 
