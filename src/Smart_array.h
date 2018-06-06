@@ -49,7 +49,11 @@ class Smart_array
          * @param index of array.
          * @return Function returns value of array[i].
          */
-        int operator [] (int i);
+        int operator [] (int i) const;
+
+        /**
+         */
+        int& operator [] (int i);
 
         bool set_element_by_index(int index, int element);
 

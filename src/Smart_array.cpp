@@ -38,7 +38,12 @@ Smart_array& Smart_array::operator=(const Smart_array& obj)
     return *this;
 }
 
-int Smart_array::operator [](int i)
+int Smart_array::operator [](int i) const
+{
+    return m_array[i];
+}
+
+int& Smart_array::operator [](int i)
 {
     return m_array[i];
 }
