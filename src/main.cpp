@@ -16,11 +16,13 @@ void quick_sort(Smart_array& s, int left, int right);
 int main()
 {
     Smart_array arr(4, 0);
-    arr.set_element_by_index(0, 25);
-    arr.set_element_by_index(1, 515);
-    arr.set_element_by_index(2, 5);
-    arr.set_element_by_index(3, 15246);
-    cout << arr << endl;
+   // arr.set_element_by_index(0, 25);
+   // arr.set_element_by_index(1, 515);
+   // arr.set_element_by_index(2, 5);
+   // arr.set_element_by_index(3, 15246);
+   // cout << arr << endl;
+    std::cin >> arr;
+    std::cout << arr << std::endl;
     return 0;
 }
 

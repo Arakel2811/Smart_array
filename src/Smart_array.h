@@ -66,6 +66,14 @@ class Smart_array
          * @return Function returns ostream value.
          */
         friend std::ostream& operator <<(std::ostream& os, Smart_array& obj);
+        
+        /**
+         * @breif Function input all elements of array.
+         * @param in is a input stream.
+         * @param obj is Smart_array class object.
+         * @return Function returns istream value.
+         */
+        friend std::istream& operator >>(std::istream& in, Smart_array& obj);
 
         /**
          * @breif Function returns value by index.

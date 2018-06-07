@@ -50,10 +50,20 @@ int& Smart_array::operator [](int i)
 
 std::ostream& operator <<(std::ostream& os, Smart_array& obj)
 {
-    for (int i = 0; i < obj.get_size() ; ++i) {
+    for (int i = 0; i < obj.get_size(); ++i) {
         os << obj[i] << " ";
     }
     return os;
+}
+
+std::istream& operator >>(std::istream& in, Smart_array& obj)
+{   int number = 0;
+    for (int i = 0; i < obj.get_size(); ++i) {
+        in >> number; 
+        obj.set_element_by_index(i, number);
+        std::cout << std::endl;
+    }
+    return in;
 }
 
 Smart_array::~Smart_array()
