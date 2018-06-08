@@ -1,6 +1,9 @@
 #ifndef SMART_ARRAY_H
 #define SMART_ARRAY_H
+
 #include <iostream>
+
+//YM: comment about the class
 class Smart_array
 {
     private:
@@ -11,15 +14,17 @@ class Smart_array
         
         /**
          * @brief Default constructor
-         * @return Function does not returns value
+         * YM: what kind of object the constructor creates. e.g what size, what
+         * default value
+         * is it useful?
          */
         Smart_array(); 
 
         /**
-         * @brief Constructor with parameters.
+         * @brief Creates array of size "size" and fill it with
+         * "default_element" elements
          * @param size is size of Smart_array.
          * @param default_element is a default value for all elements in array
-         * @return Function does not returns value.
         */
         Smart_array(int size, int default_element);
         
@@ -40,6 +45,9 @@ class Smart_array
         /**
          * @breif Function puts value in array by index.
          * @param index is an index of element in array.
+         * YM: precondition on index
+         * Index can be unsigned
+         * If the index is out of range error message will be reported....
          * @param element is the element which we want to put in array.
          * @return Function returns boolean value.
          */
@@ -53,6 +61,7 @@ class Smart_array
         int operator [] (int i) const;
 
         /**
+         * YM: difference from const version
          * @breif Function returns value of array[i].
          * @param index of array.
          * @return Function returns value of array[i];
@@ -90,6 +99,8 @@ class Smart_array
         
         /**
          * @breif Function creates new array with new size.
+         * YM: copies items, if smaller - cuts down, if bigger fills with
+         * default values
          * @param size is a size of new array.
          * @return Function does not return value.
          */

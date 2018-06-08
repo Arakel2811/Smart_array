@@ -3,12 +3,14 @@
 #include <stdlib.h>
 #include <limits.h>
 
+//YM redundant
 Smart_array::Smart_array()
 {
 
 }
 
 Smart_array::Smart_array(int size, int default_element)
+        //using initializaton list
 {
   m_size = size;
   m_default_element = default_element;
@@ -69,7 +71,7 @@ std::istream& operator >>(std::istream& in, Smart_array& obj)
 Smart_array::~Smart_array()
 {
     std::cout << "Destructor called" << std::endl;
-    delete this->m_array;
+    delete[] m_array;
 }
 
 bool Smart_array::set_element_by_index(int index, int element)
@@ -77,7 +79,7 @@ bool Smart_array::set_element_by_index(int index, int element)
   if (index < 0 || index > this->m_size) {
       return false;
   }else {
-      this->m_array[index] = element;
+      m_array[index] = element;
   }
  }
 
