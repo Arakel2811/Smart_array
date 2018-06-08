@@ -13,14 +13,6 @@ class Smart_array
     public:
         
         /**
-         * @brief Default constructor
-         * YM: what kind of object the constructor creates. e.g what size, what
-         * default value
-         * is it useful?
-         */
-        Smart_array(); 
-
-        /**
          * @brief Creates array of size "size" and fill it with
          * "default_element" elements
          * @param size is size of Smart_array.

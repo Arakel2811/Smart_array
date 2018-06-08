@@ -2,19 +2,13 @@
 #include <iostream>
 #include <stdlib.h>
 #include <limits.h>
-
-//YM redundant
-Smart_array::Smart_array()
-{
-
-}
+#include <cassert>
 
 Smart_array::Smart_array(int size, int default_element)
-        //using initializaton list
+  : m_size(size), m_default_element(default_element), m_array(0)
 {
-  m_size = size;
-  m_default_element = default_element;
-  m_array = new int[m_size]; 
+  m_array = new int[m_size];
+  assert(m_array != 0); 
   for (int i = 0; i < size; ++i) {
     m_array[i] = m_default_element;
   } 
@@ -34,6 +28,7 @@ Smart_array& Smart_array::operator=(const Smart_array& obj)
     m_size = obj.m_size;
     m_default_element = obj.m_default_element;
     m_array = new int[m_size];
+    assert(m_array != 0);
     for (int i = 0; i < m_size; ++i) {
         m_array[i] = obj.m_array[i];
     } 
@@ -42,11 +37,18 @@ Smart_array& Smart_array::operator=(const Smart_array& obj)
 
 int Smart_array::operator [](int i) const
 {
+    if(i < 0 || i > m_size) {
+        std::cout << "Index can not be negative or big or not greater than size." << std::endl;
+        exit(0);
+    }
     return m_array[i];
 }
 
 int& Smart_array::operator [](int i)
 {
+    if(i < 0 || i > m_size) {
+        std::cout << "Index can not be negative or big or not greater than size." << std::endl;
+    }
     return m_array[i];
 }
 
@@ -130,11 +132,6 @@ void Smart_array::print_array()
 
 bool Smart_array::swap(int i, int j)
 {
-// Algorithm dlya chaynikov. :DD
-//  int temp;
-//  temp = m_array[i];
-//  m_array[i] = m_array[j]; 
-//  m_array[j] = temp; 
     if(i == j) {
       return true;
     }
